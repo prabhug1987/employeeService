@@ -7,7 +7,7 @@ spring:
         password: "admin123"
 #aplication name        
     application:
-        name: employeeService
+        name: Employee Service
 #server port details        
 server:
     port: 7070
