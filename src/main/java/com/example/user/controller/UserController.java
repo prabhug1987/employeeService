@@ -28,12 +28,12 @@ public class UserController {
 	private UserRepository userRepository;
 
 	@GetMapping("/user")
-	public List<User> getAllusers() {
+	public List<User> getAllUsers() {
 		return userRepository.findAll();
 	}
 
 	@GetMapping("/users/{id}")
-	public ResponseEntity<User> getuserById(@PathVariable(value = "id") Long userId)
+	public ResponseEntity<User> getUserById(@PathVariable(value = "id") Long userId)
 			throws ResourceNotFoundException {
 		User user = userRepository.findById(userId)
 				.orElseThrow(() -> new ResourceNotFoundException("user not found for this id :: " + userId));
@@ -41,22 +41,22 @@ public class UserController {
 	}
 
 	@PostMapping("/users")
-	public User createuser(@Valid @RequestBody User user) {
+	public User createUser(@Valid @RequestBody User user) {
 		return userRepository.save(user);
 	}
 
 	@PutMapping("/users/{id}")
-	public ResponseEntity<User> updateuser(@PathVariable(value = "id") Long userId,
+	public ResponseEntity<User> updateUser(@PathVariable(value = "id") Long userId,
 			@Valid @RequestBody User user) throws ResourceNotFoundException {
 
 		User userInstance = userRepository.findById(userId)
 				.orElseThrow(() -> new ResourceNotFoundException("user not found for this Id :: " + userId));
 		//userInstance.
 		
-		final User updateduser = userRepository.save(user);
+		final User updatedUser = userRepository.save(user);
 		
 
-		return ResponseEntity.ok(updateduser);
+		return ResponseEntity.ok(updatedUser);
 	}
 	
 	@DeleteMapping
