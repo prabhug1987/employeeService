@@ -1,4 +1,4 @@
-package com.example.employee.controller;
+package com.example.user.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -17,11 +17,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.employee.exception.ResourceNotFoundException;
-import com.example.employee.model.Employee;
-import com.example.employee.repository.EmployeeRepository;
-
-import com.example.employee.exception.ResourceNotFoundException;
+import com.example.user.exception.ResourceNotFoundException;
+import com.example.user.model.Employee;
+import com.example.user.repository.EmployeeRepository;
 
 @RestController
 public class EmployeeController {
