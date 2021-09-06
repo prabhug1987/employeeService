@@ -2,11 +2,17 @@ package com.example.user.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,12 +31,22 @@ public class User {
 	private long id;
 	private int age;
 	private String email;
+	
+	@Column(nullable = false, updatable = false)
+	@CreatedDate
 	private Date createdAt;
+	
+	@Column(nullable = false, updatable = false)
+	@CreatedBy
 	private String createdBy;
 	private Date dateOfBirth;
 	private String firstName;
 	private String lastName;
+	
+	@LastModifiedBy
 	private Date updateAt;
+	
+	@LastModifiedDate
 	private String updateBy;
 
 }
