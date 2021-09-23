@@ -1,20 +1,6 @@
-spring:
-  boot:
-    admin:
-      client:
-        url: http://localhost:6060
-        username: "admin"
-        password: "admin123"
-#aplication name        
-    application:
-        name: Employee Service
-#server port details        
-server:
-    port: 7070
-#register with eureka    
 eureka:
-   client:
-      registerWithEureka: true
-      fetchRegistry: true
-      serviceUrl:
-          defaultZone: http://localhost:8888/eureka/
+  instance:
+    lease-renewal-interval-in-seconds: 10
+
+app:
+  version:'1.0' 
