@@ -9,9 +9,9 @@ public interface UserService {
 
 	User findyById();
 
-	User save();
+	User saveUser();
 
-	User update();
+	User updateUser();
 
-	User delete();
+	User deleteUser();
 }
