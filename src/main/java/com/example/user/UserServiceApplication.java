@@ -4,17 +4,28 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.ConfigurableApplicationContext;
-
-import com.netflix.discovery.shared.Application;
+import org.springframework.context.annotation.Bean;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
 @SpringBootApplication
 @EnableEurekaClient
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled=true)
 public class UserServiceApplication {
 
 	private static ConfigurableApplicationContext context;
 	
+	
 	public static void main(String[] args) {
 		context = SpringApplication.run(UserServiceApplication.class, args);
+	}
+
+	@Bean(name = "entitySessionFactory")
+	public LocalSessionFactoryBean sessionFactory() {
+		LocalSessionFactoryBean sessionFactory=new LocalSessionFactoryBean();
+			return sessionFactory;
 	}
 	
 	public static void restart() {

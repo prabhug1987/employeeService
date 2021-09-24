@@ -6,9 +6,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 //import org.springframework.context.annotation.
 @Configuration
-@EnableJpaAuditing
-@EnableTransactionManagement
-@EnableJpaRepositories
+//@EnableJpaAuditing
+//@EnableTransactionManagement
+//@EnableJpaRepositories
 public interface PersistenceConfig {
 
 }

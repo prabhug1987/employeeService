@@ -1,5 +1,6 @@
 package com.example.user.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
@@ -15,14 +16,17 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 
+import javassist.SerialVersionUID;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Table(name = "user")
-@Getter
-@Setter
-public class User {
+@Data
+public class User implements Serializable{
+	private static final long SerialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
@@ -38,6 +42,7 @@ public class User {
 	private String createdBy;
 	private Date dateOfBirth;
 	private String description;
+	private char enabled;
 	private String firstName;
 	private String lastName;
 
@@ -53,4 +58,6 @@ public class User {
 	private String userName;
 
 	private Set<UserRole> roles;
+	
+	private Set<UserAddress> userAddresses;
 }

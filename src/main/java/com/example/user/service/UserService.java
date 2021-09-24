@@ -1,5 +1,7 @@
 package com.example.user.service;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
 import com.example.user.model.User;
@@ -7,11 +9,14 @@ import com.example.user.model.User;
 @Service
 public interface UserService {
 
-	User findyById();
+	Optional<User> deleteUser(User user);
 
-	User saveUser();
+	Optional<User> findAllUsers();
+	
+	Optional<User> findUserById(Long userId);
 
-	User updateUser();
+	Optional<User> saveUser(User user);
 
-	User deleteUser();
+	Optional<User> updateUser(User user);
+
 }

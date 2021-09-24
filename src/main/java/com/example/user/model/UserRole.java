@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import org.springframework.data.annotation.CreatedBy;
@@ -24,8 +25,14 @@ import lombok.ToString;
 @AllArgsConstructor
 @Data
 @ToString
-public class UserRole {
+public class UserRole implements Serializable{
 
+	
+	/**
+	 * this is generated serial version id
+	 */
+	private static final long serialVersionUID = 1662799867785003818L;
+	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private int id;
