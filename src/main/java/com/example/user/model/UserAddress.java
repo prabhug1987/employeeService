@@ -9,11 +9,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Table
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
+@ToString
+@Setter
+@Getter
+@EqualsAndHashCode
 public class UserAddress implements Serializable {
 
 	/**
@@ -30,5 +42,9 @@ public class UserAddress implements Serializable {
 	private int pincode;
 	private String state;
 	private Set<User> user;
+	
+	private String createdTime;
+	private String createdBy;
+	
 
 }

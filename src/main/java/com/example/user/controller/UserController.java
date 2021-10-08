@@ -37,13 +37,12 @@ public class UserController {
 
 	@ExceptionHandler(UserNotFoundException.class)
 	@GetMapping("/users/{id}")
-	public ResponseEntity<User> getUserById(@PathVariable(value = "id") Long userId)
-			throws UserNotFoundException {
+	public ResponseEntity<User> getUserById(@PathVariable(value = "id") Long userId) throws UserNotFoundException {
 		User user = userService.findUserById(userId)
 				.orElseThrow(() -> new UserNotFoundException("user not found for this id :: " + userId));
 		return ResponseEntity.ok().body(user);
 	}
-	
+
 	@ExceptionHandler(UserNotFoundException.class)
 	@PostMapping("/users")
 	public Optional<User> createUser(@Valid @RequestBody User user) {
@@ -52,25 +51,25 @@ public class UserController {
 
 	@ExceptionHandler(UserNotFoundException.class)
 	@PutMapping("/users/{id}")
-	public ResponseEntity<User> updateUser(@PathVariable(value = "id") Long userId,
-			@Valid @RequestBody User user) throws UserNotFoundException {
+	public ResponseEntity<User> updateUser(@PathVariable(value = "id") Long userId, @Valid @RequestBody User user)
+			throws UserNotFoundException {
 
 		User userInstance = userService.findUserById(userId)
 				.orElseThrow(() -> new UserNotFoundException("user not found for this Id :: " + userId));
-		//userInstance.
-		
+		// userInstance.
+
 		final Optional<User> updatedUser = userService.updateUser(user);
-		
 
 		return ResponseEntity.ok(updatedUser.get());
 	}
-	
+
 	@ExceptionHandler(UserNotFoundException.class)
 	@DeleteMapping
-	public Map<String, Boolean> deleteuser(@PathVariable(value = "id") Long userId)throws UserNotFoundException{
-		User user = userService.findUserById(userId).orElseThrow(()-> new UserNotFoundException("user not found for this Id :: "+ userId));
+	public Map<String, Boolean> deleteuser(@PathVariable(value = "id") Long userId) throws UserNotFoundException {
+		User user = userService.findUserById(userId)
+				.orElseThrow(() -> new UserNotFoundException("user not found for this Id :: " + userId));
 		userService.deleteUser(user);
-		
+
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);
 		return response;

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.user.model.User;
 
-@Service
+
 public interface UserService {
 
 	Optional<User> deleteUser(User user);

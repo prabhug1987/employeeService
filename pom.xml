@@ -18,6 +18,8 @@
 		<java.version>11</java.version>
 		<spring-boot-admin.version>2.4.3</spring-boot-admin.version>
 		<spring-cloud.version>2020.0.3</spring-cloud.version>
+		<h2.version>1.4.200</h2.version>
+		<swagger.version>2.4.0</swagger.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -47,13 +49,13 @@
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
-			<version>2.4.0</version>
+			<version>${swagger.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
-			<version>2.4.0</version>
+			<version>${swagger.version}</version>
 		</dependency>
 
 		<dependency>
