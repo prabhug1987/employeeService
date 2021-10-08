@@ -16,10 +16,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import jdk.jfr.Timestamp;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import lombok.ToString;
 
 @Entity
@@ -27,10 +24,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Setter
-@Getter
 @ToString
-@EqualsAndHashCode
 public class UserRole implements Serializable{
 
 	

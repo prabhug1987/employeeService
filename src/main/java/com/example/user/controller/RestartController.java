@@ -1,14 +1,15 @@
 package com.example.user.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.example.user.UserServiceApplication;
 
 @RestController
 public class RestartController {
 
-	@RequestMapping(method = RequestMethod.POST, value="restart")
+	@PostMapping
 	public void restart() {
-		//UserServiceApplication.restart();
+		UserServiceApplication.restart();
 	}
 }

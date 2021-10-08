@@ -1,21 +1,21 @@
 package com.example.user.exception;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 public class ErrorMessage {
-	private LocalDateTime localDateTime;
+	private Date timestamp;
 	private String message;
 	private String description;
 
-	public ErrorMessage(LocalDateTime localDateTime, String message, String description) {
+	public ErrorMessage(Date timestamp, String message, String description) {
 		super();
-		this.localDateTime = localDateTime;
+		this.timestamp = timestamp;
 		this.message = message;
 		this.description = description;
 	}
 
-	public LocalDateTime getLocalDateTime() {
-		return localDateTime;
+	public Date getTimestamp() {
+		return timestamp;
 	}
 
 	public String getMessage() {
